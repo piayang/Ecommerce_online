@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% block title %}Product detial | {{productfield.name}} {% endblock  %}
+{% block content %}
+<div class="container my-3">
+    <div class="card-wrapper">
+        <div class="row align-items-center mt-4 my-4">
+            <div class="col-12 col-lg-6">
+                <div class="image-wrapper">
+                    <img src="{{productfield.img.url}}">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 my-4">
+                <div class="text-box">
+                    <h5 class="mbr-title mbr-fonts-style display-5">
+                        <strong>Product Name : {{productfield.name}}</strong>
+                        <p class="display-7 text-secondary">Stock :{{productfield.stock}} </p>
+                    </h5>
+                    <p class="mbr-text mbr-fonts-style display-7">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin euismod, velit vel bibendum bibendum, quam velit dictum nibh, quis facilisis lorem sem eget ante. Aliquam erat volutpat. Integer id semper leo. Sed tincidunt enim eget nulla varius, et tincidunt mauris ornare. Sed aliquet aliquet risus, vitae accumsan ligula congue eu. Sed euismod, risus a faucibus tempus</p>
+                    <div class="cost">
+                        <span class="currentcost mbr-fonts-style pr-2 display-5">Price :  {{productfield.price | intcomma }} LAK</span>
+                    </div>
+                    <div class="mbr-section-btn pt-3">
+                        {% if productfield.stock <= 0 %}
+                        <h5 class="text-secondary"> ສິນຄ້າໝົດແລ້ວ </h5>
+                        {% else %}
+                           <a href="cart.html" class="btn btn-primary display-4">
+                            <i class="bi bi-cart3"></i></i>&nbsp;
+                             Buy
+                        </a>
+                        {% endif %}
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock content %}
